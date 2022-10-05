@@ -1,13 +1,16 @@
+import { Suspense } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { NavLink, Navigate } from 'react-router-dom';
 
 import logo from '../assets/react.svg';
 
-// import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
 import { routes } from "./routes";
+
+
 
 const Navigation = () => {
   return (
+    <Suspense fallback={<span>Loading...</span>}>
     <BrowserRouter>
       <div className="main-layout" >
         <nav>
@@ -46,6 +49,8 @@ const Navigation = () => {
       </div>
     
     </BrowserRouter>
+    </Suspense>
+
   )
 }
 
